@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    container_name: marinobend
+    restart: always
+    build: .
+    ports:
+      - '6060:5000'
+    links:
+      - mongo
+  mongo:
+    container_name: marinomongo
+    image: mongo
+    ports:
+      - '27018:27017'
